@@ -97,7 +97,15 @@ def shift_mutation(arr):
     
   return arr
 
+def flip_bit_mutation(arr):
 
+    # Random Index
+    flip = random.randint(0, len(arr) - 1)
+
+    # Flip
+    arr[flip] = 1 - arr[flip]
+
+    return arr
 
 
 def randomize_list(n):
