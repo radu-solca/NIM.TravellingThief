@@ -1,0 +1,107 @@
+\documentclass{article}
+\usepackage{graphicx} % images
+\usepackage{parskip} % endline between paragraphs
+\usepackage{hyperref}
+\hypersetup{hidelinks}
+
+\title{Bi-Objective Optimization for the Traveling Thief Problem using a Co-evolutionary Strategy}
+\author{Radu Solca, Gabriel Ardeleanu}
+\date{November 2023}
+
+\begin{document}
+
+\maketitle
+
+\begin{abstract}
+In this paper, we will present The Traveling Thief Problem, a unique challenge by combining two classical problems: the Traveling Salesman Problem and the Knapsack Problem. To address the bi-objective component, we employ a co-evolutionary approach, leveraging the power of concurrent optimization. This allows us to evolve solutions for both objectives in parallel to achieve optimal solutions for the TTP. Our research presents the results of applying this co-evolutionary algorithm to various data inputs, concluding its effectiveness while proposing ways to improve the results in future experiments.
+\end{abstract}
+
+\newpage
+
+\section{Introduction}
+
+In real-world optimization, problems often present themselves as tricky combinations of NP-hard optimization problems that interact with one another. These multi-component optimization problems represent significant challenges, not only due to the nature of each component but also the interaction that binds them into one problem. Bi-objective problems introduce the idea of a trade-off between two optimizations, which makes finding a satisfactory solution particularly tricky.
+
+The Traveling Thief Problem stands as a prime example of a bi-objective optimization problem. In TTP, the goal is to determine the optimal route for a set of thefts, minimizing the total cost of travel between locations and maximizing the value of stolen goods. The conflicting nature of these objectives, as picking up objects will add to the total carried weight, thus slowing the thief which is equal to a higher travel cost, represents our main focus in solving this problem.
+
+The Traveling Thief Problem has been the focus of various competitions at international conferences, such as GECCO (Genetic and Evolutionary Computation Conference), held over multiple years, including 2017, 2019 \footnote{Source: https://gecco-2019.sigevo.org/index.html/Competitions} and 2023. These competitions have encouraged the development of new algorithms and strategies to address the complexities of problems like TTP.
+
+To address the complex nature of bi-objective problems, a co-evolutionary approach has emerged as a promising solution. It's aim is to divide the task into the individual aspects of the problem, allowing them to evolve simultaneously. Their evolution will still be based on the Fitness Function that considers the whole problem, meaning that the individuals who work best together are more likely to participate in evolution. This ensures that our search is towards the Pareto front\footnote{Source: https://en.wikipedia.org/wiki/Pareto_front}, in other words, the combinations that offer the best trade-offs between the conflicting objectives. As this experiment is only aimed at providing results, we will discuss the Pareto front when considering ways to improve.
+
+In this work, we present our results in solving the Traveling Thief Problem, highlighting the performance of our co-evolutionary approach. We will also provide an analysis of the achieved results and discuss potential strategies for further improvements.
+
+\section{Methodology}
+
+Our approach to addressing the Traveling Thief Problem unfolds within an intricate co-evolutionary structure, designed to optimize the simultaneous Traveling Salesman Problem and Knapsack Problem. Our methodology starts with the initialization of two separate populations: one dedicated to the TSP and the other to the KS, their members being initially randomized to provide a diverse starting point.
+
+The essential part of our method is found in the evaluation of each individual using a modified fitness function in the evaluation process. Each TSP solution is subjected to an in-depth evaluation, achieved through its pairing with every KS solution from the opposing population. This allows us to approximate the overall compatibility between TSP and KS for each individual. The resulting fitness values are not fixed, they actually correspond to the mean value of all combinations where one individual stays the same. Simply put, it is a measure of compatibility with the other population during evolution and finally represents a corresponding TSP solution. In our algorithm, this evaluation process cascades through the entire TSP population, with each individual evaluated accordingly. Equally, our methodology calls for the mirrored evaluation, as every KS solution is used to go through a similar process. After which, we once again, calculate the average fitness values.
+
+These mean values are the foundation of our evaluation and evolution methods. They aren't just tools for looking back; they guide us throughout our co-evolutionary journey. In the parallel evolution process, we use one-point crossover and a range of mutations to introduce genetic diversity into our solution space, improving the TSP and KS populations.
+
+Our method is based on the separation of the TTP into its TSP and KS sub-problems. It aims to create a dynamic synergy between these co-evolving populations through well-organized processes. This approach seeks to reveal the potential for optimal solutions to the complex Traveling Thief Problem.
+
+\section{Results}
+
+Using the process outlined in the preceding chapter, our methodology has yielded promising results in our pursuit of solving the Traveling Thief Problem (TTP). Through the co-evolutionary approach, we have used the synergy between the Traveling Salesman Problem (TSP) and the Knapsack Problem (KS) to optimize the challenge, marking a significant step forward in the quest for effective problem-solving strategies.
+
+Tables
+
+It is crucial to remember that the presented results should be viewed as preliminary. These findings are not the final outcomes of our research but rather serve as a Proof of Concept, illustrating the feasibility of our approach in addressing the TTP problem.
+
+\section{Conclusions}
+\subsection{Possible Improvements}
+
+To enhance the effectiveness of our approach in tackling the Traveling Thief Problem (TTP), we can explore several avenues for improvement:
+
+Parameter Exploration: One promising solution is to experiment with various problem values, such as population size, mutation rates, the number of generations, and other algorithmic parameters. By systematically adjusting these values and applying the algorithm on a smaller scale, we can fine-tune the algorithm's performance and potentially uncover configurations that lead to more efficient solutions.
+
+Initialization Strategies: Introducing reasonably good, though not necessarily optimal, solutions to the initial populations is another opportunity for improvement. For instance, we can kickstart the algorithm by incorporating fast but suboptimal solutions, like greedy evaluations, which can guide the search in the right direction.
+
+Pareto Front Analysis: It's worthwhile to explore the concept of the Pareto front, which represents a set of solutions where no solution is superior in all objectives. Analyzing the Pareto front can provide valuable insights into trade-offs between competing objectives. By delving into this analysis, we can better understand the balance between the TSP and KS objectives and refine our approach for future experiments, potentially yielding more robust results.
+
+These potential improvements offer exciting opportunities for further enhancing the capabilities of our co-evolutionary approach when dealing with the complex and multifaceted Traveling Thief Problem.
+
+\subsection{Final Conclusions}
+
+After gaining a comprehensive understanding of the co-evolutionary process and meticulously analyzing the results, it becomes evident that the genetic algorithm employed in our approach is, indeed, capable of yielding satisfactory results.
+
+Furthermore, our research indicates there's plenty of room for improvement. By fine-tuning parameters, introducing effective initialization strategies, and drawing insights from Pareto front analysis, we have the potential to achieve better results in future experiments.
+
+
+In summary, our findings not only validate the effectiveness of the co-evolutionary approach but also provide motivation for improving the current algorithm resulting in overall better solutions for the presented Traveling Thief Problem.
+
+\newpage
+
+\section{Bibliography}
+
+Traveling Salesman Problem: \\
+\href{https://en.wikipedia.org/wiki/Travelling_salesman_problem}{https://en.wikipedia.org/wiki/Travelling_salesman_problem}
+\vspace{20pt}
+
+KnapSack Problem: \\
+\href{https://en.wikipedia.org/wiki/Knapsack_problem}
+{https://en.wikipedia.org/wiki/Knapsack_problem}
+\vspace{20pt}
+
+GECCO competition source:\\
+\href{https://gecco-2019.sigevo.org/index.html/Competitions}
+{https://gecco-2019.sigevo.org/index.html/Competitions}\\
+\href{https://www.egr.msu.edu/coinlab/blankjul/gecco19-thief/}{https://www.egr.msu.edu/coinlab/blankjul/gecco19-thief/}
+\vspace{20pt}
+
+Co-Evolution: \\
+\href{https://ieeexplore.ieee.org/document/8454482}
+{https://ieeexplore.ieee.org/document/8454482}
+\vspace{20pt}
+
+Used Library: \\
+\href{https://deap.readthedocs.io/en/master/examples/coev_coop.html}{https://deap.readthedocs.io/en/master/examples/coev_coop.html}
+\vspace{20pt}
+
+Pareto front:\\
+\href{https://en.wikipedia.org/wiki/Pareto_front}
+{https://en.wikipedia.org/wiki/Pareto_front}\\
+\href{https://pymoo.org/algorithms/moo/nsga2.html}
+{https://pymoo.org/algorithms/moo/nsga2.html}
+
+\end{document}
