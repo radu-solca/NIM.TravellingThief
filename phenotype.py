@@ -1,19 +1,20 @@
 import numpy as np
 from typing import List
+from genotype import KnapsackChromosome, SalesmanChromosome
 
 from problem import City, Item, TTPInstance
 
 class Solution:
 
-    def __init__(self, salesman_chromosome: np.ndarray, knapsack_chromosome: np.ndarray, problem_instance: TTPInstance):
+    def __init__(self, salesman_chromosome: SalesmanChromosome, knapsack_chromosome: KnapsackChromosome, problem_instance: TTPInstance):
 
         self.items_picked_per_city: List[Item] = [[] for _ in range(len(problem_instance.cities))]
 
         for item_index, item in problem_instance.items.items():
-            if knapsack_chromosome[item.index-1]:
+            if knapsack_chromosome.items[item.index-1]:
                 self.items_picked_per_city[item.city_index-1].append(item)
 
-        self.city_tour: List[City] = [problem_instance.cities[i] for i in salesman_chromosome]
+        self.city_tour: List[City] = [problem_instance.cities[i] for i in salesman_chromosome.permutation]
 
         self.problem_instance = problem_instance
 
