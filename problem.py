@@ -2,13 +2,15 @@ import math
 from typing import List
 
 class Item:
-    def __init__(self, profit: float, weight: float, city_index: int):
+    def __init__(self, index: int, profit: float, weight: float, city_index: int):
+        self.index = index
         self.profit = profit
         self.weight = weight
         self.city_index = city_index
 
 class City:
-    def __init__(self, x: float, y: float):
+    def __init__(self, index: int, x: float, y: float):
+        self.index = index
         self.x = x
         self.y = y
 
@@ -58,7 +60,8 @@ class TTPInstance:
             cities = {}
             for _ in range(cities_count):
                 city_index, city_x, city_y = file.readline().split()
-                city = City(city_x, city_y)
+                city_index, city_x, city_y = int(city_index), float(city_x), float(city_y)
+                city = City(city_index, city_x, city_y)
                 cities[city_index] = city
 
             #Read Items
@@ -66,7 +69,8 @@ class TTPInstance:
             items = {}
             for _ in range(items_count):
                 item_index, item_profit, item_weight, item_assigned_node = file.readline().split()
-                item = Item(item_profit, item_weight, item_assigned_node)
+                item_index, item_profit, item_weight, item_assigned_node = int(item_index), float(item_profit), float(item_weight), int(item_assigned_node)
+                item = Item(item_index, item_profit, item_weight, item_assigned_node)
                 items[item_index] = item
 
             return TTPInstance(

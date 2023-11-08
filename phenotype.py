@@ -1,24 +1,24 @@
+import numpy as np
 from typing import List
 
 from problem import City, Item, TTPInstance
-from genotype import KnapsackChromosome, SalesmanChromosome
 
 class Solution:
 
-    def __init__(self, salesman_chromosome: SalesmanChromosome, knapsack_chromosome: KnapsackChromosome, problem_instance: TTPInstance):
+    def __init__(self, salesman_chromosome: np.ndarray, knapsack_chromosome: np.ndarray, problem_instance: TTPInstance):
 
         self.items_picked_per_city: List[Item] = [[] for _ in range(len(problem_instance.cities))]
 
-        for item in problem_instance.items:
-            if knapsack_chromosome.items[item.city_index]:
-                self.items_picked_per_city[item.city_index].append(item)
+        for item_index, item in problem_instance.items.items():
+            if knapsack_chromosome[item.index-1]:
+                self.items_picked_per_city[item.city_index-1].append(item)
 
-        self.city_tour: List[City] = [problem_instance.cities[i] for i in salesman_chromosome.tour]
+        self.city_tour: List[City] = [problem_instance.cities[i] for i in salesman_chromosome]
 
         self.problem_instance = problem_instance
 
 
-    def get_fitness(self,  R: float) -> float:
+    def get_fitness(self) -> float:
 
         fitness = 0
 
@@ -28,10 +28,9 @@ class Solution:
         #start in the first city
         previous_city = self.city_tour[0]
 
-        for city_index in range(len(self.city_tour)):
-            current_city = self.city_tour[city_index]
+        for current_city in self.city_tour:
             
-            for item in self.items_picked_per_city[city_index]:
+            for item in self.items_picked_per_city[current_city.index-1]:
                 collected_weight += item.weight
                 fitness += item.profit
                 
