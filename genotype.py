@@ -6,9 +6,12 @@ def create_salesman_chromosome(number_of_cities: int) -> np.ndarray:
     np.random.shuffle(permutation)
     return permutation
 
-def mutate_salesman_chromosome(tour: np.ndarray) -> None:
-    index1, index2 = np.random.randint(0, len(tour), size=2)
-    tour[index1], tour[index2] = tour[index2], tour[index1]
+def mutate_salesman_chromosome(tour: np.ndarray, gene_mutation_prob: float) -> None:
+
+    for i in range(len(tour)):
+        if np.random.random() < gene_mutation_prob:
+            swap_index = np.random.randint(len(tour))
+            tour[i], tour[swap_index] = tour[swap_index], tour[i]
 
 def crossover_salesman_chromosomes(tour1: np.ndarray, tour2: np.ndarray) -> Tuple[np.ndarray, np.ndarray]:
     crossover_point = np.random.randint(1, len(tour1))
@@ -25,9 +28,10 @@ def crossover_salesman_chromosomes(tour1: np.ndarray, tour2: np.ndarray) -> Tupl
 def create_knapsack_chromosome(number_of_items: int) -> np.ndarray:
     return np.random.choice([True, False], size=number_of_items)
 
-def mutate_knapsack_chromosome(items: np.ndarray) -> None:
-    index = np.random.randint(0, len(items))
-    items[index] = not items[index]
+def mutate_knapsack_chromosome(items: np.ndarray, gene_mutation_prob: float) -> None:
+    for i in range(len(items)):
+        if np.random.random() < gene_mutation_prob:
+            items[i] = not items[i]
 
 def crossover_knapsack_chromosomes(items1: np.ndarray, items2: np.ndarray) -> Tuple[np.ndarray, np.ndarray]:
     assert len(items1) == len(items2)
