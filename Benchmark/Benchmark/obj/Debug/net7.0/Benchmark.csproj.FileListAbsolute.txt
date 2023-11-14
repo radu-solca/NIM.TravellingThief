@@ -1,0 +1,14 @@
+C:\School\Sem1\MIN\NIM.TravellingThief\Benchmark\Benchmark\obj\Debug\net7.0\Benchmark.GeneratedMSBuildEditorConfig.editorconfig
+C:\School\Sem1\MIN\NIM.TravellingThief\Benchmark\Benchmark\obj\Debug\net7.0\Benchmark.AssemblyInfoInputs.cache
+C:\School\Sem1\MIN\NIM.TravellingThief\Benchmark\Benchmark\obj\Debug\net7.0\Benchmark.AssemblyInfo.cs
+C:\School\Sem1\MIN\NIM.TravellingThief\Benchmark\Benchmark\obj\Debug\net7.0\Benchmark.csproj.CoreCompileInputs.cache
+C:\School\Sem1\MIN\NIM.TravellingThief\Benchmark\Benchmark\bin\Debug\net7.0\Benchmark.exe
+C:\School\Sem1\MIN\NIM.TravellingThief\Benchmark\Benchmark\bin\Debug\net7.0\Benchmark.deps.json
+C:\School\Sem1\MIN\NIM.TravellingThief\Benchmark\Benchmark\bin\Debug\net7.0\Benchmark.runtimeconfig.json
+C:\School\Sem1\MIN\NIM.TravellingThief\Benchmark\Benchmark\bin\Debug\net7.0\Benchmark.dll
+C:\School\Sem1\MIN\NIM.TravellingThief\Benchmark\Benchmark\bin\Debug\net7.0\Benchmark.pdb
+C:\School\Sem1\MIN\NIM.TravellingThief\Benchmark\Benchmark\obj\Debug\net7.0\Benchmark.dll
+C:\School\Sem1\MIN\NIM.TravellingThief\Benchmark\Benchmark\obj\Debug\net7.0\refint\Benchmark.dll
+C:\School\Sem1\MIN\NIM.TravellingThief\Benchmark\Benchmark\obj\Debug\net7.0\Benchmark.pdb
+C:\School\Sem1\MIN\NIM.TravellingThief\Benchmark\Benchmark\obj\Debug\net7.0\Benchmark.genruntimeconfig.cache
+C:\School\Sem1\MIN\NIM.TravellingThief\Benchmark\Benchmark\obj\Debug\net7.0\ref\Benchmark.dll
